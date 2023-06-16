@@ -1,0 +1,13 @@
+stages:
+  - debug
+  - release
+Build Debug:
+  stage: debug
+  image: gcc
+  script:
+    - make
+Build Release:
+  stage: release
+  image: gcc
+  script:
+    - make release
