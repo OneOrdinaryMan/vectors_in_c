@@ -78,6 +78,20 @@ void insert_at_index(vector *input_vector, int index, int value) {
   input_vector->length++;
 }
 
+int remove_at_index(vector *input_vector, int index) {
+  if (index >= input_vector->length) {
+    printf("Index out of bounds.\n");
+    return 0;
+  }
+  int return_value = input_vector->vec_pointer[index];
+  for (int i = index; i < input_vector->length - 1; i++) {
+    input_vector->vec_pointer[i] = input_vector->vec_pointer[i + 1];
+  }
+  input_vector->vec_pointer[--input_vector->length] = 0;
+  cleanup(input_vector);
+  return return_value;
+}
+
 void print_vector(vector *input_vector) {
   if (input_vector->length == 0) {
     printf("The vector is empty!\n");

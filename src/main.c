@@ -10,6 +10,7 @@ int main() {
   }
   remove_head(&input_vector);
   insert_at_index(&input_vector, 0, 0);
+  remove_at_index(&input_vector, 2);
   print_vector(&input_vector);
   delete_vector(&input_vector);
   return 0;
