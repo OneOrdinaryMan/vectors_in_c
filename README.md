@@ -7,6 +7,18 @@ Every method applicable for the array is applicable to the vector. Additionally,
 - [ ] Remove head
 - [ ] Insert at index
 - [ ] Remove at index
+
+## Vector struct
+The vector struct contains the pointer to the vector, the length of the vector, the capacity it holds in the vector.
+
+__Psuedo Code__
+```c
+typedef struct {
+  int *vec_pointer;
+  int length;
+  int capacity;
+} vector;
+```
 ## Push
 ## Pop
 ## Remove head
