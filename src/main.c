@@ -8,6 +8,7 @@ int main() {
   for (int i = 0; i < 20; i++) {
     pop(&input_vector);
   }
+  remove_head(&input_vector);
   print_vector(&input_vector);
   delete_vector(&input_vector);
   return 0;

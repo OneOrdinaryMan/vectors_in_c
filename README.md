@@ -4,7 +4,7 @@ Every method applicable for the array is applicable to the vector. Additionally,
 
 - [x] Push
 - [x] Pop
-- [ ] Remove head
+- [x] Remove head
 - [ ] Insert at index
 - [ ] Remove at index
 
@@ -46,6 +46,24 @@ int pop(vector *input_vector) {
 }
 ```
 ## Remove head
+Remove head will remove the first element in array and shift the elements to left. returns the first value.
+
+__Psuedo Code__
+```c
+int remove_head(vector *input_vector) {
+  if (input_vector->length == 0) {
+    printf("vector is empty\n");
+    return 0;
+  }
+  int return_value = input_vector->vec_pointer[0];
+  for (int i = 0; i < input_vector->length - 1; i++) {
+    input_vector->vec_pointer[i] = input_vector->vec_pointer[i + 1];
+  }
+  input_vector->length--;
+  cleanup(input_vector);
+  return return_value;
+}
+```
 ## Insert at index
 ## Remove at index
 # Licence
