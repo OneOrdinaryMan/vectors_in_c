@@ -51,6 +51,19 @@ int pop(vector *input_vector) {
   return return_value;
 }
 
+int remove_head(vector *input_vector) {
+  if (input_vector->length == 0) {
+    printf("vector is empty\n");
+    return 0;
+  }
+  int return_value = input_vector->vec_pointer[0];
+  for (int i = 0; i < input_vector->length - 1; i++) {
+    input_vector->vec_pointer[i] = input_vector->vec_pointer[i + 1];
+  }
+  input_vector->length--;
+  cleanup(input_vector);
+  return return_value;
+}
 void print_vector(vector *input_vector) {
   if (input_vector->length == 0) {
     printf("The vector is empty!\n");
