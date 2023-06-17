@@ -3,7 +3,7 @@ Vectors in C are just arrays created with malloc. When array grows the contents 
 Every method applicable for the array is applicable to the vector. Additionally, following functions are available,
 
 - [x] Push
-- [ ] Pop
+- [x] Pop
 - [ ] Remove head
 - [ ] Insert at index
 - [ ] Remove at index
@@ -30,6 +30,21 @@ void push(vector *input_vector, int value) {
 }
 ```
 ## Pop
+Pop will reduce the length of the array and the value at the last element is returned. If capacity - length > 15, the capacity decreases by 10.
+
+__Psuedo Code__
+```c
+int pop(vector *input_vector) {
+  if (input_vector->length == 0) {
+    printf("Nothing to pop!\n");
+    return 0;
+  }
+  int return_value = input_vector->vec_pointer[--input_vector->length];
+  input_vector->vec_pointer[input_vector->length] = 0;
+  cleanup(input_vector);
+  return return_value;
+}
+```
 ## Remove head
 ## Insert at index
 ## Remove at index

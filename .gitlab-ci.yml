@@ -6,8 +6,14 @@ Build Debug:
   image: gcc
   script:
     - make
+  only:
+    - main
+    - merge_requests
 Build Release:
   stage: release
   image: gcc
   script:
     - make release
+  only:
+    - main
+    - merge_requests
