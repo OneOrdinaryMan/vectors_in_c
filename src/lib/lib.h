@@ -12,6 +12,7 @@ void increase_capacity(vector *);
 void push(vector *, int);
 int pop(vector *);
 int remove_head(vector *);
+void insert_at_index(vector *, int, int);
 void print_vector(vector *);
 void cleanup(vector *);
 void delete_vector(vector *);

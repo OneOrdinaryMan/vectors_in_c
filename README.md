@@ -5,7 +5,7 @@ Every method applicable for the array is applicable to the vector. Additionally,
 - [x] Push
 - [x] Pop
 - [x] Remove head
-- [ ] Insert at index
+- [x] Insert at index
 - [ ] Remove at index
 
 ## Vector struct
@@ -20,7 +20,7 @@ typedef struct {
 } vector;
 ```
 ## Push
-Push function adds the value at the length of the array and the array length is incremented. If capacity - length < 3, the capacity increses by 10.
+Push function adds the value at the length of the vector and the vector length is incremented. If capacity - length < 3, the capacity increses by 10.
 
 __Psuedo Code__
 ```c
@@ -30,7 +30,7 @@ void push(vector *input_vector, int value) {
 }
 ```
 ## Pop
-Pop will reduce the length of the array and the value at the last element is returned. If capacity - length > 15, the capacity decreases by 10.
+Pop will reduce the length of the vector and the value at the last element is returned. If capacity - length > 15, the capacity decreases by 10.
 
 __Psuedo Code__
 ```c
@@ -46,7 +46,7 @@ int pop(vector *input_vector) {
 }
 ```
 ## Remove head
-Remove head will remove the first element in array and shift the elements to left. returns the first value.
+Remove head will remove the first element in vector and shift the elements to left. returns the first value.
 
 __Psuedo Code__
 ```c
@@ -65,6 +65,23 @@ int remove_head(vector *input_vector) {
 }
 ```
 ## Insert at index
+Insert at index will insert at the index pushing all the elements to left. If the index is greater than the length of the vector, returns with out of bounds error.
+
+__Psuedo Code__
+```c
+void insert_at_index(vector *input_vector, int index, int value) {
+  if (index > input_vector->length) {
+    printf("Index out of bounds.\n");
+    return;
+  }
+  increase_capacity(input_vector);
+  for (int i = input_vector->length; i > index; i--) {
+    input_vector->vec_pointer[i] = input_vector->vec_pointer[i - 1];
+  }
+  input_vector->vec_pointer[index] = value;
+  input_vector->length++;
+}
+```
 ## Remove at index
 # Licence
 The project is licenced under <mark> GNU GPL V3.0</mark> licence. Feel free to use the project.

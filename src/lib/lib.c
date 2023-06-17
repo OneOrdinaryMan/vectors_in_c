@@ -64,6 +64,20 @@ int remove_head(vector *input_vector) {
   cleanup(input_vector);
   return return_value;
 }
+
+void insert_at_index(vector *input_vector, int index, int value) {
+  if (index > input_vector->length) {
+    printf("Index out of bounds.\n");
+    return;
+  }
+  increase_capacity(input_vector);
+  for (int i = input_vector->length; i > index; i--) {
+    input_vector->vec_pointer[i] = input_vector->vec_pointer[i - 1];
+  }
+  input_vector->vec_pointer[index] = value;
+  input_vector->length++;
+}
+
 void print_vector(vector *input_vector) {
   if (input_vector->length == 0) {
     printf("The vector is empty!\n");
