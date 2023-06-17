@@ -40,6 +40,17 @@ void push(vector *input_vector, int value) {
   input_vector->vec_pointer[input_vector->length++] = value;
 }
 
+int pop(vector *input_vector) {
+  if (input_vector->length == 0) {
+    printf("Nothing to pop!\n");
+    return 0;
+  }
+  int return_value = input_vector->vec_pointer[--input_vector->length];
+  input_vector->vec_pointer[input_vector->length] = 0;
+  cleanup(input_vector);
+  return return_value;
+}
+
 void print_vector(vector *input_vector) {
   if (input_vector->length == 0) {
     printf("The vector is empty!\n");
