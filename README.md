@@ -6,7 +6,7 @@ Every method applicable for the array is applicable to the vector. Additionally,
 - [x] Pop
 - [x] Remove head
 - [x] Insert at index
-- [ ] Remove at index
+- [x] Remove at index
 
 ## Vector struct
 The vector struct contains the pointer to the vector, the length of the vector, the capacity it holds in the vector.
@@ -65,7 +65,7 @@ int remove_head(vector *input_vector) {
 }
 ```
 ## Insert at index
-Insert at index will insert at the index pushing all the elements to left. If the index is greater than the length of the vector, returns with out of bounds error.
+Insert at index will insert at the index pushing all the elements to right. If the index is greater than the length of the vector, returns with out of bounds error.
 
 __Psuedo Code__
 ```c
@@ -83,5 +83,23 @@ void insert_at_index(vector *input_vector, int index, int value) {
 }
 ```
 ## Remove at index
+Remove at index will shift the value right to one left. returns the value at index.
+
+__Psuedo Code__
+```c
+int remove_at_index(vector *input_vector, int index) {
+  if (index >= input_vector->length) {
+    printf("Index out of bounds.\n");
+    return 0;
+  }
+  int return_value = input_vector->vec_pointer[index];
+  for (int i = index; i < input_vector->length - 1; i++) {
+    input_vector->vec_pointer[i] = input_vector->vec_pointer[i + 1];
+  }
+  input_vector->vec_pointer[--input_vector->length] = 0;
+  cleanup(input_vector);
+  return return_value;
+}
+```
 # Licence
 The project is licenced under <mark> GNU GPL V3.0</mark> licence. Feel free to use the project.
