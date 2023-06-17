@@ -9,6 +9,7 @@ int main() {
     pop(&input_vector);
   }
   remove_head(&input_vector);
+  insert_at_index(&input_vector, 0, 0);
   print_vector(&input_vector);
   delete_vector(&input_vector);
   return 0;
